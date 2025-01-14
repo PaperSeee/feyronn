@@ -7,6 +7,7 @@
     --text-secondary: #8b949e;
 }
 
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
@@ -20,15 +21,18 @@ body {
     line-height: 1.6;
 }
 
+/* Layout */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
 }
 
+/* Header styles */
 .header {
     text-align: center;
     margin-bottom: 3rem;
+    animation: fadeIn 1s ease forwards;
 }
 
 .profile-img {
@@ -51,6 +55,7 @@ body {
     margin-bottom: 0.5rem;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -60,6 +65,7 @@ body {
     margin-bottom: 1rem;
 }
 
+/* Content sections */
 .description {
     background: var(--card-bg);
     padding: 2rem;
@@ -67,6 +73,7 @@ body {
     margin-bottom: 3rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    animation: fadeIn 1s ease forwards;
 }
 
 .description:hover {
@@ -84,6 +91,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+    animation: fadeIn 1s ease forwards;
 }
 
 .partner-logo, .social-logo {
@@ -108,65 +116,7 @@ body {
     border-left: 4px solid #ff3333;
 }
 
-footer {
-    background: var(--card-bg);
-    padding: 2rem 0;
-    margin-top: 4rem;
-}
-
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.footer-links {
-    margin-bottom: 1rem;
-}
-
-.footer-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    margin: 0 1rem;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: var(--primary-color);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.header, .description, .partners-grid, .social-grid {
-    animation: fadeIn 1s ease forwards;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .title {
-        font-size: 2rem;
-    }
-
-    .partners-grid, .social-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ...existing code... */
-
+/* Affiliate banner */
 .affiliate-banner {
     background: linear-gradient(135deg, var(--card-bg), #1a2233);
     border-radius: 15px;
@@ -234,8 +184,7 @@ footer {
     color: var(--text-secondary);
 }
 
-/* ...existing code... */
-
+/* Screenshots section */
 .screenshots-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -297,20 +246,7 @@ footer {
     text-align: center;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .screenshots-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .screenshot-card {
-        max-height: 300px;
-    }
-}
-
-/* ...existing code... */
-
-/* Add Popup Styles */
+/* Popup styles */
 .popup {
     display: none;
     position: fixed;
@@ -328,11 +264,38 @@ footer {
     max-width: 90%;
     max-height: 90vh;
     margin: auto;
-    display: block;
-    position
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* ...existing code... */
+footer {
+    background: var(--card-bg);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
+}
 
 footer p {
     text-align: center;
@@ -340,4 +303,43 @@ footer p {
     padding: 1rem 0;
 }
 
-/* ...existing code... */
+/* Animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .partners-grid, 
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .screenshots-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenshot-card {
+        max-height: 300px;
+    }
+}
