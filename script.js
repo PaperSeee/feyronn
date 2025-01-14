@@ -21,6 +21,23 @@ document.addEventListener('DOMContentLoaded', function() {
             logo.style.transform = 'translateY(0) scale(1)';
         });
     });
+
+    // Ajout de la gestion responsive des animations
+    function handleResponsiveAnimations() {
+        const isMobile = window.innerWidth <= 768;
+        
+        elements.forEach((element, index) => {
+            const delay = isMobile ? index * 100 : index * 200; // Animations plus rapides sur mobile
+            setTimeout(() => {
+                element.style.transition = `all ${isMobile ? '0.4s' : '0.6s'} ease`;
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, delay);
+        });
+    }
+
+    // Écouter les changements de taille d'écran
+    window.addEventListener('resize', handleResponsiveAnimations);
 });
 
 function openPopup(card) {
@@ -30,6 +47,13 @@ function openPopup(card) {
     
     popupImg.src = img.src;
     popup.style.display = 'flex';
+    
+    // Ajuster l'affichage pour le mobile
+    if (window.innerWidth <= 768) {
+        popupImg.style.width = '95%';
+        popupImg.style.height = 'auto';
+    }
+    
     document.body.style.overflow = 'hidden';
 }
 
